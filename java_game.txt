@@ -1,0 +1,72 @@
+package first_game;
+import java.util.*;
+import java.util.Scanner;
+class game {
+  public int num;        
+  public int number;      
+  public int noOfGuesses=0;  
+ 
+  game() {
+      Random random = new Random();  
+      this.num = random.nextInt(100);   
+      
+     // noOfGuesses = 0;             
+  }
+void takeUserInput() {
+  	Scanner sc=new Scanner(System.in);
+  	System.out.println("Guess the number within 100");
+      number = sc.nextInt();
+  }
+  boolean isCorrectNumber() 
+  {
+	  noOfGuesses++;
+      if (number == num) 
+      {
+    	  System.out.print("You are right! ");
+    	  System.out.println("Guessed it in "+noOfGuesses+" attempt");
+          return true;
+           } 
+      else if (number > num)
+      {
+          System.out.println("Go Low");
+      } 
+      else if (number < num) 
+      {
+          System.out.println("Go High");
+      }
+   return false;
+  }
+
+void userPerformance()
+{
+	if(noOfGuesses>5)
+	{
+		System.out.println("But You took more attemps");
+	}else
+	{
+	System.out.println("That's a good performance");
+}
+}
+}
+public class game_one{
+	public static void main(String[]args)
+	{
+		
+		game g=new game();
+		boolean b=false;
+		while(!b) {
+		g.takeUserInput();
+		b=g.isCorrectNumber();
+		
+		}
+		g.userPerformance();
+	}
+}
+	
+
+	
+
+
+
+		
+	
